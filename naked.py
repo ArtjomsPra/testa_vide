@@ -19,14 +19,16 @@ dt = datetime.now()
 request_date = str(dt.year) + "-" + str(dt.month).zfill(2) + "-" + str(dt.day).zfill(2)  
 print("Generated today's date: " + str(request_date))
 
-
+# Requesting info from NASA API 
 print("Request url: " + str(nasa_api_url + "rest/v1/feed?start_date=" + request_date + "&end_date=" + request_date + "&api_key=" + nasa_api_key))
 r = requests.get(nasa_api_url + "rest/v1/feed?start_date=" + request_date + "&end_date=" + request_date + "&api_key=" + nasa_api_key)
 
+# Printing NASA request data
 print("Response status code: " + str(r.status_code))
 print("Response headers: " + str(r.headers))
 print("Response content: " + str(r.text))
 
+# Displaying results if status code is 200, making arrays of safe and hazardous asteroids, printing asteroid count for today, if ast count bigger than zero, we get the data of the asteroids, we print information about those asteroids, if count is zero, than we print that no hazardous asteroids for today.
 if r.status_code == 200:
 
 	json_data = json.loads(r.text)
