@@ -11,6 +11,7 @@ from datetime import datetime
 from configparser import ConfigParser
 from mysql.connector import Error
 
+#Komentars prieks Eksamena, kuru veicu 08.01.2022 plkst.14:14
 
 # Loading logging configuration
 with open('./log_worker.yaml', 'r') as stream:
